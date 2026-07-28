@@ -54,3 +54,27 @@ h1{font-size:clamp(32px,4vw,46px);line-height:1.1;margin:12px 0 14px;font-weight
 @keyframes marquee{to{transform:translateX(-100%)}}
 @keyframes recordingBorder{0%,100%{border-color:#d4351c}50%{border-color:#ff6b57}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Registered Manager interview phase */
+.qa--manager{
+  border-top-color:#6f3fa0;
+}
+.qa--manager .qa__header{
+  background:linear-gradient(180deg,#faf7fd 0%,#ffffff 100%);
+}
+.qa--manager .qa__liveTitle{
+  color:#6f3fa0;
+}
+.qa__card--manager{
+  border-left-color:#6f3fa0;
+  background:#fdfaff;
+  box-shadow:0 6px 18px rgba(111,63,160,.10);
+}
+.qa__card--manager.qa__card--outward:before{
+  border-right-color:#6f3fa0;
+}
+.qa__card--manager .qa__evidence{
+  background:#f4edf9;
+  border-left-color:#6f3fa0;
+  color:#4e2675;
+}
