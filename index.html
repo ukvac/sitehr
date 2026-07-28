@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Internal HR compliance check and HR portal demonstration interface." />
+  <title>HR Compliance Check</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="recording-outline" aria-hidden="true"></div>
+
+  <div class="screen-recorder screen-recorder--hidden" id="screenRecorder" role="status" aria-live="polite">
+    <span class="screen-recorder__dot" aria-hidden="true"></span>
+    <span class="screen-recorder__label">SCREEN RECORDING</span>
+    <span class="screen-recorder__timer" id="screenRecorderTimer">00:00</span>
+  </div>
+
+  <header class="app-header" role="banner">
+    <div class="container app-header__inner">
+      <div class="app-header__left">
+        <span class="app-header__brand">HR Compliance Portal</span>
+      </div>
+      <div class="app-header__center">HR Systems Compliance Check</div>
+      <div class="app-header__right">Organisation: <strong>Comforts Independent Living Care Ltd</strong></div>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <div class="phase-banner" aria-label="Service status">
+      <strong class="phase-banner__tag">INTERNAL</strong>
+      <span class="phase-banner__text">This service is used to record and evidence an HR systems compliance review.</span>
+    </div>
+
+    <section class="service-name" aria-label="Service name">
+      <div class="service-name__box">
+        <strong class="service-name__text">HR Portal Compliance Demonstration</strong>
+        <span class="service-name__subtext">Live functional review, evidence check and recorded system walkthrough</span>
+      </div>
+    </section>
+
+    <p class="back-link-wrap">
+      <a class="back-link" href="#" onclick="history.back(); return false;">Back</a>
+    </p>
+
+    <h1>HR compliance check</h1>
+    <h2 class="section-heading">This is a live recorded demonstration.</h2>
+
+    <div class="summary" role="region" aria-label="Compliance check summary">
+      <div class="summary__row">
+        <div class="summary__key">Organisation</div>
+        <div class="summary__value">Comforts Independent Living Care Ltd</div>
+      </div>
+      <div class="summary__divider" role="presentation"></div>
+      <div class="summary__row">
+        <div class="summary__key">Review type</div>
+        <div class="summary__value">HR Portal Functionality and Compliance Evidence Check</div>
+      </div>
+      <div class="summary__divider" role="presentation"></div>
+      <div class="summary__row">
+        <div class="summary__key">Presenter</div>
+        <div class="summary__value">HR representative, system administrator or authorised manager</div>
+      </div>
+      <div class="summary__divider" role="presentation"></div>
+      <div class="summary__row summary__row--total">
+        <div class="summary__key">Recording</div>
+        <div class="summary__value">Camera, microphone and the demonstration screen should be available throughout the review.</div>
+      </div>
+    </div>
+
+    <div class="warning" role="note" aria-label="Before you continue">
+      <div class="warning__icon" aria-hidden="true">!</div>
+      <div class="warning__content">
+        <h3 class="warning__title">Before you continue</h3>
+        <p class="warning__text">Use test or appropriately redacted records wherever possible. Do not display unnecessary special-category data, passwords, full bank details or unrelated confidential information.</p>
+        <p class="warning__text">The presenter should demonstrate each requested function on screen and explain the associated process, access controls, evidence and audit trail.</p>
+        <p class="warning__text">The red outline and recording indicator will remain visible while the session is active.</p>
+      </div>
+    </div>
+
+    <section class="status-grid" aria-label="Session status">
+      <article class="status-card">
+        <span class="status-card__label">Camera</span>
+        <strong class="status-card__value" id="cameraState">Not active</strong>
+      </article>
+      <article class="status-card">
+        <span class="status-card__label">Microphone</span>
+        <strong class="status-card__value" id="microphoneState">Not active</strong>
+      </article>
+      <article class="status-card">
+        <span class="status-card__label">Screen recording</span>
+        <strong class="status-card__value" id="screenState">Not active</strong>
+      </article>
+      <article class="status-card">
+        <span class="status-card__label">Audit session</span>
+        <strong class="status-card__value">HR-2026-00192</strong>
+      </article>
+    </section>
+
+    <section class="qa" aria-label="Live HR compliance demonstration questions">
+      <div class="qa__header">
+        <h3 class="qa__title">HR portal demonstration checklist</h3>
+        <p class="qa__subtitle">Questions appear one at a time after recording starts. Demonstrate the requested feature, explain the process and show the relevant audit evidence.</p>
+      </div>
+
+      <div class="qa__body">
+        <div class="review-banner review-banner--hidden" id="reviewBanner" aria-live="polite">
+          <div class="review-banner__icon" aria-hidden="true">✓</div>
+          <div class="review-banner__track">
+            <span class="review-banner__text">HR Compliance Reviewer is observing this demonstration. Recording integrity check active.</span>
+          </div>
+        </div>
+
+        <div class="qa__meta" aria-live="polite">
+          <div class="qa__metaRow">
+            <div>
+              <span class="qa__section" id="qaSection">Recording required</span>
+              <span class="qa__liveTitle">Compliance demonstration</span>
+            </div>
+            <span class="qa__liveBadge" id="qaLiveBadge" aria-label="Live recording">
+              <span class="qa__liveDot" aria-hidden="true"></span>LIVE
+            </span>
+          </div>
+          <div class="qa__metaRow qa__metaRow--secondary">
+            <span class="qa__number" id="qaNumber">Questions will appear after recording has started.</span>
+          </div>
+        </div>
+
+        <div class="qa__card qa__card--outward qa__card--hidden" id="qaCard" role="group" aria-label="Current compliance question">
+          <div class="qa__q" id="qaQuestion"></div>
+          <div class="qa__hint" id="qaHint"></div>
+          <div class="qa__evidence" id="qaEvidence"></div>
+        </div>
+
+        <div class="qa__controls" aria-label="Question navigation">
+          <button type="button" class="qa-btn qa-btn--secondary" id="qaPrevious" disabled>Previous</button>
+          <button type="button" class="qa-btn" id="qaNext" disabled>Next question</button>
+          <div class="rec-visual rec-visual--hidden" id="recVisual" aria-hidden="true">
+            <div class="rec-visual__bars" id="recBars">
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <span class="rec-visual__dot"></span>
+          </div>
+        </div>
+
+        <div class="qa__progress" role="progressbar" aria-label="Question progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="qa__progress-bar" id="qaProgressBar"></div>
+        </div>
+        <p class="qa__lockNote" id="qaLockNote">Confirm consent and start recording before the compliance questions are shown.</p>
+      </div>
+
+      <div class="qa__footer" role="note"><strong>Evidence standard:</strong> demonstrate the function, identify who can access it, show how changes are recorded and explain how exceptions are escalated.</div>
+    </section>
+
+    <p class="body-text body-text--subtle">This interface is an internal demonstration aid. It does not itself capture or upload the screen; browser permission is used for camera and microphone preview.</p>
+
+    <div class="actions">
+      <div class="recording-panel" role="note" aria-label="Session recording notice">
+        <div class="recording-panel__badge">
+          <span class="recording-badge">REC</span>
+          <span class="recording-panel__title">Session recording control</span>
+        </div>
+        <p class="recording-panel__text">Select “Start recording” when the presenter is ready. During recording, the page displays a fixed red outline and a visible screen-recording timer.</p>
+      </div>
+
+      <div class="consent" role="group" aria-label="Consent and authority">
+        <label class="consent__label">
+          <input type="checkbox" id="consentCheck" class="consent__checkbox" />
+          <span class="consent__text">I confirm that all participants have been informed of the recording, that I am authorised to demonstrate the HR portal, and that confidential information will be appropriately protected.</span>
+        </label>
+        <p class="consent__hint" id="consentHint">Confirm consent before starting the recording.</p>
+      </div>
+
+      <div class="recording-controls" aria-label="Recording controls">
+        <button type="button" id="recToggle" class="rec-toggle rec-toggle--off" aria-pressed="false" disabled>
+          <span class="rec-dot" aria-hidden="true"><svg class="rec-mic" viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Zm5-3a1 1 0 1 0-2 0 3 3 0 0 1-6 0 1 1 0 1 0-2 0 5 5 0 0 0 4 4.9V18H9a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-2v-2.1A5 5 0 0 0 17 11Z"/></svg></span>
+          <span id="recToggleText">Start recording</span>
+        </button>
+        <div class="rec-status" aria-live="polite">
+          <span class="rec-status__label" id="recStatusLabel">Not recording</span>
+          <span class="rec-status__sep">•</span>
+          <span class="rec-timer" id="recTimer">00:00</span>
+        </div>
+      </div>
+
+      <a class="button button--disabled" id="submitBtn" href="#" aria-disabled="true">Submit compliance check</a>
+    </div>
+
+    <ul class="link-list">
+      <li><a href="#">Save and return later</a></li>
+      <li><a href="#">Review demonstration record</a></li>
+      <li><a href="#">Export compliance summary</a></li>
+    </ul>
+  </main>
+
+  <aside class="cam-float" id="camFloat" aria-label="Live camera preview">
+    <div class="cam-float__drag" id="camDrag">
+      <span class="cam__title">Live HR demonstration</span>
+      <span class="cam__status" id="camStatus">Off</span>
+    </div>
+    <div class="cam__frame">
+      <video id="camVideo" autoplay playsinline muted></video>
+      <span class="cam__rec cam__rec--hidden" id="camRec"><span></span>REC</span>
+      <div class="cam__placeholder" id="camPlaceholder">Camera preview</div>
+    </div>
+    <div class="cam__signals">
+      <span id="camMicSignal">Microphone off</span>
+      <span id="camScreenSignal">Screen recording off</span>
+    </div>
+    <p class="cam__note">Local camera preview. Browser permission is required.</p>
+  </aside>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="container app-footer__inner">
+      <div class="app-footer__links">
+        <a href="#">Privacy</a><a href="#">Information governance</a><a href="#">Accessibility</a><a href="#">Support</a>
+      </div>
+      <p class="app-footer__note">HR Compliance Portal Interface — internal use only.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const $ = (id) => document.getElementById(id);
+      const body = document.body;
+      const btn = $("recToggle");
+      const btnText = $("recToggleText");
+      const statusLabel = $("recStatusLabel");
+      const timerEl = $("recTimer");
+      const screenRecorder = $("screenRecorder");
+      const screenRecorderTimer = $("screenRecorderTimer");
+      const consentCheck = $("consentCheck");
+      const consentHint = $("consentHint");
+      const submitBtn = $("submitBtn");
+      const qaSection = $("qaSection");
+      const qaNumber = $("qaNumber");
+      const qaQuestion = $("qaQuestion");
+      const qaHint = $("qaHint");
+      const qaEvidence = $("qaEvidence");
+      const qaPrevious = $("qaPrevious");
+      const qaNext = $("qaNext");
+      const qaProgressBar = $("qaProgressBar");
+      const qaProgress = document.querySelector(".qa__progress");
+      const qaLockNote = $("qaLockNote");
+      const qaCard = $("qaCard");
+      const qaLiveBadge = $("qaLiveBadge");
+      const recVisual = $("recVisual");
+      const recBars = Array.from(document.querySelectorAll("#recBars span"));
+      const reviewBanner = $("reviewBanner");
+      const camVideo = $("camVideo");
+      const camStatus = $("camStatus");
+      const camFloat = $("camFloat");
+      const camDrag = $("camDrag");
+      const camRec = $("camRec");
+      const camPlaceholder = $("camPlaceholder");
+      const cameraState = $("cameraState");
+      const microphoneState = $("microphoneState");
+      const screenState = $("screenState");
+      const camMicSignal = $("camMicSignal");
+      const camScreenSignal = $("camScreenSignal");
+
+      let camStream = null;
+      let micStream = null;
+      let audioContext = null;
+      let analyser = null;
+      let sourceNode = null;
+      let animationFrameId = null;
+      let isRecording = false;
+      let hasRecordingStarted = false;
+      let startTime = 0;
+      let elapsedMs = 0;
+      let intervalId = null;
+      let idx = 0;
+
+      const questions = [
+        {section:"Introduction", q:"Introduce the organisation and explain the purpose of the HR portal.", hint:"Identify the presenter, their role, the system owner and the main HR processes managed through the portal.", evidence:"Show: portal home page, organisation name and current user role."},
+        {section:"Governance", q:"Explain who is responsible for maintaining HR records and monitoring compliance.", hint:"Describe HR, manager and administrator responsibilities, including escalation routes.", evidence:"Show: assigned roles, responsibilities or governance information."},
+        {section:"Access control", q:"Demonstrate the available user roles and permissions.", hint:"Compare administrator, HR, manager and employee access. Explain least-privilege controls.", evidence:"Show: role settings and an example of restricted access."},
+        {section:"Access control", q:"Show how a user account is created, amended, suspended and removed.", hint:"Explain approval, identity verification and leaver access removal.", evidence:"Show: user administration screen and audit history."},
+        {section:"Staff overview", q:"Demonstrate the Staff Overview dashboard and explain each status indicator.", hint:"Explain how managers identify overdue, missing or expiring requirements.", evidence:"Show: dashboard widgets, colour coding and filters."},
+        {section:"Employee records", q:"Open a test employee record and explain every tab or section.", hint:"Include personal details, employment, compliance, training, supervision, leave and documents.", evidence:"Show: complete employee profile using redacted or test data."},
+        {section:"Employee records", q:"Demonstrate how a new employee record is created.", hint:"Explain mandatory fields, validation, approval and duplicate-record controls.", evidence:"Show: new employee workflow without saving real personal data."},
+        {section:"Employee records", q:"Show how changes to employee details are recorded and audited.", hint:"Demonstrate who changed the record, what changed and when.", evidence:"Show: change history or audit log."},
+        {section:"Right to work", q:"Demonstrate where Right to Work evidence is recorded.", hint:"Explain share-code checks, document retention, check dates and follow-up checks.", evidence:"Show: right-to-work fields, evidence upload and review date."},
+        {section:"Right to work", q:"Show how visa and immigration expiry dates are monitored.", hint:"Explain advance reminders, responsibility for follow-up and escalation for missing evidence.", evidence:"Show: expiry alert, reminder settings and compliance status."},
+        {section:"Identity", q:"Demonstrate passport and identity-document monitoring.", hint:"Explain expiry alerts and how renewed documents are uploaded without losing historical evidence.", evidence:"Show: current document, expiry date and archived version."},
+        {section:"DBS", q:"Show how DBS checks are recorded and monitored.", hint:"Explain check level, certificate date, update service status, renewal trigger and risk escalation.", evidence:"Show: DBS fields, status and reminder."},
+        {section:"Employment", q:"Show where contracts, job descriptions and terms are stored.", hint:"Explain version control, signature or acknowledgement and access restrictions.", evidence:"Show: employment document area and latest document version."},
+        {section:"Employment", q:"Demonstrate how job title, contracted hours, work location and manager are recorded.", hint:"Explain how changes are approved and reflected across the portal.", evidence:"Show: employment details and change history."},
+        {section:"Sponsor compliance", q:"Demonstrate how sponsored-worker information is monitored.", hint:"Include role, salary, hours, work location, visa dates and reportable changes.", evidence:"Show: sponsor compliance record using redacted data."},
+        {section:"Sponsor compliance", q:"Show the process for recording and escalating a potential visa-condition concern.", hint:"Explain investigation, decision-making, documentation and authorised reporting.", evidence:"Show: concern record, escalation status and decision note."},
+        {section:"Attendance", q:"Demonstrate how rotas, attendance, lateness and missed shifts are recorded.", hint:"Explain how patterns are identified and linked to supervision or management action.", evidence:"Show: rota or attendance history and exception flags."},
+        {section:"Attendance", q:"Show how repeated unavailability or refusal of shifts is documented.", hint:"Explain consistency checks, worker communication, welfare consideration and escalation thresholds.", evidence:"Show: availability history, notes and management actions."},
+        {section:"Leave", q:"Demonstrate annual-leave request, approval, rejection and amendment.", hint:"Explain balance calculations, authorisation and the audit trail.", evidence:"Show: leave request workflow and manager decision."},
+        {section:"Absence", q:"Show how sickness absence and return-to-work information are recorded.", hint:"Explain confidentiality, access controls, triggers and follow-up.", evidence:"Show: absence record using test data."},
+        {section:"Training", q:"Demonstrate where mandatory training records are stored.", hint:"Show course, completion date, provider, certificate and renewal date.", evidence:"Show: training matrix and one employee training record."},
+        {section:"Training", q:"Show how overdue or expiring training is identified and escalated.", hint:"Explain reminders, manager action and restriction from duties where appropriate.", evidence:"Show: overdue alert, assigned action and completion status."},
+        {section:"Supervision", q:"Demonstrate how a supervision record is created.", hint:"Show date, participants, topics, actions, review date and confirmation.", evidence:"Show: new supervision workflow using a test employee."},
+        {section:"Supervision", q:"Show where a completed supervision appears elsewhere in the portal.", hint:"Confirm that it updates the employee record, Staff Overview, HR records and action tracking where applicable.", evidence:"Show: linked views and the employee timeline."},
+        {section:"Appraisal", q:"Demonstrate the appraisal or performance-review workflow.", hint:"Explain objectives, manager comments, employee acknowledgement and follow-up actions.", evidence:"Show: appraisal form and review status."},
+        {section:"Conduct", q:"Show how disciplinary, grievance and informal-management records are stored.", hint:"Explain restricted access, document retention, outcomes and appeal records.", evidence:"Show: case area with test or redacted information."},
+        {section:"Safeguarding", q:"Demonstrate how a safeguarding concern or incident is recorded and escalated.", hint:"Explain immediate action, notifications, evidence, confidentiality and management oversight.", evidence:"Show: incident workflow, status and action log."},
+        {section:"Documents", q:"Demonstrate uploading, viewing, replacing, archiving and deleting a document.", hint:"Explain file restrictions, permissions, retention rules and recovery controls.", evidence:"Show: document repository and version history."},
+        {section:"Policies", q:"Show how a policy is published and assigned to staff.", hint:"Explain version control, effective date, target audience and review date.", evidence:"Show: policy record and assigned employee group."},
+        {section:"Policies", q:"Demonstrate staff acknowledgement or electronic confirmation of a policy.", hint:"Explain how non-acknowledgement is followed up and evidenced.", evidence:"Show: acknowledgement status and timestamp."},
+        {section:"Forms", q:"Show how staff forms or declarations are issued and completed.", hint:"Include conditional questions, mandatory fields, submission tracking and manager review.", evidence:"Show: one test form from issue to submission."},
+        {section:"Notifications", q:"Demonstrate compliance notifications and reminders.", hint:"Include DBS, visa, passport, training, supervision, probation and document-review alerts.", evidence:"Show: notification centre and reminder configuration."},
+        {section:"Search", q:"Demonstrate searching and filtering staff records.", hint:"Search by name, employee ID, email, status, location and compliance condition.", evidence:"Show: search results and filters."},
+        {section:"Reports", q:"Generate a compliance report.", hint:"Explain the report period, filters, status definitions and export controls.", evidence:"Show: report output and export option."},
+        {section:"Reports", q:"Generate training, employee and expiry reports.", hint:"Explain how managers use them for monitoring and follow-up.", evidence:"Show: at least two report types and filters."},
+        {section:"Audit", q:"Demonstrate the portal audit log.", hint:"Show sign-ins, record changes, document actions and administrative changes.", evidence:"Show: audit event, user, timestamp and affected record."},
+        {section:"Data quality", q:"Explain how incomplete, inconsistent or duplicate records are identified.", hint:"Demonstrate validation, exception reporting and correction controls.", evidence:"Show: validation message or incomplete-record report."},
+        {section:"Security", q:"Explain password, session and authentication controls.", hint:"Include password policy, account lockout, session timeout and multi-factor authentication if available.", evidence:"Show: security settings without exposing credentials."},
+        {section:"Privacy", q:"Demonstrate how access to confidential and special-category data is restricted.", hint:"Explain role-based access, logging, redaction and appropriate information sharing.", evidence:"Show: permission restriction or protected section."},
+        {section:"Retention", q:"Explain record-retention, archiving and deletion controls.", hint:"Describe retention periods, legal holds, leaver records and authorised deletion.", evidence:"Show: retention or archive settings."},
+        {section:"Leavers", q:"Demonstrate the leaver process.", hint:"Include final working date, access removal, document retention, property return and archive status.", evidence:"Show: test leaver workflow."},
+        {section:"Mobile access", q:"Demonstrate the portal on a mobile-sized screen.", hint:"Show that key employee, document, leave and compliance functions remain usable.", evidence:"Show: responsive layout or mobile preview."},
+        {section:"QR access", q:"Demonstrate the staff QR login or QR access process, where used.", hint:"Explain identity controls, expiry, misuse prevention and support for staff who cannot log in.", evidence:"Show: test QR workflow without exposing a live credential."},
+        {section:"Business continuity", q:"Explain backup, restore and service-continuity arrangements.", hint:"Include backup frequency, access, testing, incident response and supplier responsibility.", evidence:"Show: documented backup status or system information where available."},
+        {section:"Integration", q:"Explain any links between the HR portal and rota, payroll, training or care systems.", hint:"Describe data ownership, update frequency, failure handling and reconciliation.", evidence:"Show: integration settings or a controlled example."},
+        {section:"Closing review", q:"Identify any known limitations, incomplete functions or current compliance actions.", hint:"Be clear about temporary workarounds, owners and target completion dates.", evidence:"Show: action tracker or improvement plan."},
+        {section:"Closing review", q:"Confirm that the demonstration was accurate and that the evidence shown reflects the current HR process.", hint:"State any exceptions and confirm who will approve the final compliance record.", evidence:"Show: final review or approval stage."}
+      ];
+
+      function pad2(n) { return String(n).padStart(2, "0"); }
+      function formatTime(ms) {
+        const totalSec = Math.floor(ms / 1000);
+        return pad2(Math.floor(totalSec / 60)) + ":" + pad2(totalSec % 60);
+      }
+      function renderTimer() {
+        const value = formatTime(elapsedMs);
+        timerEl.textContent = value;
+        screenRecorderTimer.textContent = value;
+      }
+      function tick() { elapsedMs = Date.now() - startTime; renderTimer(); }
+
+      async function startCamera() {
+        if (camStream) return;
+        try {
+          camStream = await navigator.mediaDevices.getUserMedia({video:{width:640,height:480,facingMode:"user"},audio:false});
+          camVideo.srcObject = camStream;
+          camStatus.textContent = "On";
+          camStatus.classList.add("cam__status--on");
+          camPlaceholder.classList.add("cam__placeholder--hidden");
+          cameraState.textContent = "Active";
+          cameraState.classList.add("status-card__value--active");
+        } catch (err) {
+          camStatus.textContent = "Blocked";
+          cameraState.textContent = "Permission blocked";
+          console.error("Camera error:", err);
+        }
+      }
+      function stopCamera() {
+        if (camStream) camStream.getTracks().forEach(t => t.stop());
+        camStream = null;
+        camVideo.srcObject = null;
+        camStatus.textContent = "Off";
+        camStatus.classList.remove("cam__status--on");
+        camPlaceholder.classList.remove("cam__placeholder--hidden");
+        cameraState.textContent = "Not active";
+        cameraState.classList.remove("status-card__value--active");
+      }
+
+      async function startAudioMeter() {
+        if (audioContext) return;
+        try {
+          micStream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:false});
+          audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          sourceNode = audioContext.createMediaStreamSource(micStream);
+          analyser = audioContext.createAnalyser();
+          analyser.fftSize = 64;
+          analyser.smoothingTimeConstant = 0.75;
+          sourceNode.connect(analyser);
+          microphoneState.textContent = "Active";
+          microphoneState.classList.add("status-card__value--active");
+          camMicSignal.textContent = "Microphone active";
+          camMicSignal.classList.add("cam__signal--active");
+          const dataArray = new Uint8Array(analyser.frequencyBinCount);
+          function updateWaveform() {
+            if (!analyser) return;
+            analyser.getByteFrequencyData(dataArray);
+            const slice = Math.max(1, Math.floor(dataArray.length / recBars.length));
+            recBars.forEach((bar, i) => {
+              let sum = 0;
+              const start = i * slice;
+              const end = Math.min(start + slice, dataArray.length);
+              for (let j = start; j < end; j++) sum += dataArray[j];
+              const avg = end > start ? sum / (end - start) : 0;
+              const normal = avg / 255;
+              bar.style.height = (4 + normal * 18) + "px";
+              bar.style.opacity = String(.4 + normal * .6);
+            });
+            animationFrameId = requestAnimationFrame(updateWaveform);
+          }
+          updateWaveform();
+        } catch (err) {
+          microphoneState.textContent = "Permission blocked";
+          camMicSignal.textContent = "Microphone blocked";
+          console.error("Microphone error:", err);
+        }
+      }
+      function stopAudioMeter() {
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+        if (sourceNode) sourceNode.disconnect();
+        if (analyser) analyser.disconnect();
+        if (audioContext) audioContext.close();
+        if (micStream) micStream.getTracks().forEach(t => t.stop());
+        sourceNode = analyser = audioContext = micStream = null;
+        recBars.forEach((bar, i) => { bar.style.height = [5,8,4,10][i%4] + "px"; bar.style.opacity = ".35"; });
+        microphoneState.textContent = "Not active";
+        microphoneState.classList.remove("status-card__value--active");
+        camMicSignal.textContent = "Microphone off";
+        camMicSignal.classList.remove("cam__signal--active");
+      }
+
+      function updateSubmitState() {
+        const canSubmit = consentCheck.checked && hasRecordingStarted && !isRecording;
+        submitBtn.classList.toggle("button--disabled", !canSubmit);
+        submitBtn.setAttribute("aria-disabled", String(!canSubmit));
+        if (!consentCheck.checked) consentHint.textContent = "Confirm consent before starting the recording.";
+        else if (!hasRecordingStarted) consentHint.textContent = "Consent confirmed. Start and then complete the recording.";
+        else if (isRecording) consentHint.textContent = "Recording is active. Stop recording before submission.";
+        else consentHint.textContent = "Consent confirmed and recording completed. The check can now be submitted.";
+      }
+
+      function setQuestionsVisible(visible) {
+        qaCard.classList.toggle("qa__card--hidden", !visible);
+        qaNext.disabled = !visible;
+        qaPrevious.disabled = !visible || idx === 0;
+        qaLockNote.style.display = visible ? "none" : "block";
+        qaLiveBadge.style.display = visible ? "inline-flex" : "none";
+        recVisual.classList.toggle("rec-visual--hidden", !visible);
+        if (!visible) {
+          qaSection.textContent = "Recording required";
+          qaNumber.textContent = "Questions will appear after recording has started.";
+          qaQuestion.textContent = qaHint.textContent = qaEvidence.textContent = "";
+          qaProgressBar.style.width = "0%";
+          qaProgress.setAttribute("aria-valuenow", "0");
+        }
+      }
+
+      function renderQuestion() {
+        const item = questions[idx];
+        const current = idx + 1;
+        const pct = Math.round((current / questions.length) * 100);
+        qaSection.textContent = item.section;
+        qaNumber.textContent = "Question " + current + " of " + questions.length;
+        qaQuestion.textContent = item.q;
+        qaHint.textContent = item.hint;
+        qaEvidence.textContent = item.evidence;
+        qaProgressBar.style.width = pct + "%";
+        qaProgress.setAttribute("aria-valuenow", String(pct));
+        qaPrevious.disabled = idx === 0;
+        qaNext.textContent = idx === questions.length - 1 ? "Finish questions" : "Next question";
+        if (idx >= 2) reviewBanner.classList.remove("review-banner--hidden");
+      }
+
+      async function startRec() {
+        if (!consentCheck.checked) return;
+        isRecording = true;
+        hasRecordingStarted = true;
+        body.classList.add("is-recording");
+        screenRecorder.classList.remove("screen-recorder--hidden");
+        camRec.classList.remove("cam__rec--hidden");
+        screenState.textContent = "Active";
+        screenState.classList.add("status-card__value--active");
+        camScreenSignal.textContent = "Screen recording active";
+        camScreenSignal.classList.add("cam__signal--active");
+        btn.classList.remove("rec-toggle--off");
+        btn.setAttribute("aria-pressed", "true");
+        btnText.textContent = "Stop recording";
+        statusLabel.textContent = "Recording";
+        startTime = Date.now() - elapsedMs;
+        intervalId = setInterval(tick, 250);
+        await Promise.allSettled([startCamera(), startAudioMeter()]);
+        idx = 0;
+        setQuestionsVisible(true);
+        renderQuestion();
+        updateSubmitState();
+      }
+
+      function stopRec() {
+        isRecording = false;
+        body.classList.remove("is-recording");
+        screenRecorder.classList.add("screen-recorder--hidden");
+        camRec.classList.add("cam__rec--hidden");
+        screenState.textContent = "Completed";
+        screenState.classList.remove("status-card__value--active");
+        camScreenSignal.textContent = "Screen recording stopped";
+        camScreenSignal.classList.remove("cam__signal--active");
+        btn.classList.add("rec-toggle--off");
+        btn.setAttribute("aria-pressed", "false");
+        btnText.textContent = "Start new recording";
+        statusLabel.textContent = "Not recording";
+        if (intervalId) clearInterval(intervalId);
+        intervalId = null;
+        stopCamera();
+        stopAudioMeter();
+        setQuestionsVisible(false);
+        updateSubmitState();
+      }
+
+      consentCheck.addEventListener("change", () => {
+        btn.disabled = !consentCheck.checked;
+        updateSubmitState();
+      });
+      btn.addEventListener("click", () => isRecording ? stopRec() : startRec());
+      qaNext.addEventListener("click", () => {
+        if (!isRecording) return;
+        if (idx < questions.length - 1) { idx++; renderQuestion(); }
+        else {
+          qaSection.textContent = "Completed";
+          qaNumber.textContent = "Demonstration complete";
+          qaQuestion.textContent = "All HR compliance demonstration questions have been completed.";
+          qaHint.textContent = "Stop the recording when the final comments and actions have been confirmed.";
+          qaEvidence.textContent = "Confirm outstanding actions, owners and target dates before submission.";
+          qaNext.disabled = true;
+          qaPrevious.disabled = false;
+          qaProgressBar.style.width = "100%";
+          qaProgress.setAttribute("aria-valuenow", "100");
+        }
+      });
+      qaPrevious.addEventListener("click", () => { if (isRecording && idx > 0) { idx--; renderQuestion(); } });
+      submitBtn.addEventListener("click", (e) => { if (submitBtn.getAttribute("aria-disabled") === "true") e.preventDefault(); });
+
+      let dragging = false, dragOffsetX = 0, dragOffsetY = 0;
+      camDrag.addEventListener("mousedown", (e) => {
+        if (window.innerWidth <= 1199) return;
+        dragging = true;
+        const rect = camFloat.getBoundingClientRect();
+        dragOffsetX = e.clientX - rect.left;
+        dragOffsetY = e.clientY - rect.top;
+        camFloat.classList.add("cam-float--dragging");
+      });
+      document.addEventListener("mousemove", (e) => {
+        if (!dragging) return;
+        camFloat.style.left = (e.clientX - dragOffsetX) + "px";
+        camFloat.style.top = (e.clientY - dragOffsetY) + "px";
+        camFloat.style.right = "auto";
+      });
+      document.addEventListener("mouseup", () => { dragging = false; camFloat.classList.remove("cam-float--dragging"); });
+
+      renderTimer();
+      setQuestionsVisible(false);
+      updateSubmitState();
+      window.addEventListener("beforeunload", () => { stopCamera(); stopAudioMeter(); });
+    })();
+  </script>
+</body>
+</html>
