@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Internal HR compliance check and HR portal demonstration interface." />
-  <title>HR Compliance Check</title>
+  <meta name="description" content="Internal Registered Manager Review and HR portal demonstration interface." />
+  <title>Registered Manager Review</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,16 +12,16 @@
 
   <div class="screen-recorder screen-recorder--hidden" id="screenRecorder" role="status" aria-live="polite">
     <span class="screen-recorder__dot" aria-hidden="true"></span>
-    <span class="screen-recorder__label">SCREEN RECORDING</span>
+    <span class="screen-recorder__label">INTERVIEW</span>
     <span class="screen-recorder__timer" id="screenRecorderTimer">00:00</span>
   </div>
 
   <header class="app-header" role="banner">
     <div class="container app-header__inner">
       <div class="app-header__left">
-        <span class="app-header__brand">HR Compliance Portal</span>
+        <span class="app-header__brand">CILC · Internal Governance Review</span>
       </div>
-      <div class="app-header__center">HR Systems Compliance Check</div>
+      <div class="app-header__center">INTERVIEW WORKSPACE</div>
       <div class="app-header__right">Organisation: <strong>Comforts Independent Living Care Ltd</strong></div>
     </div>
   </header>
@@ -29,13 +29,13 @@
   <main class="container" role="main">
     <div class="phase-banner" aria-label="Service status">
       <strong class="phase-banner__tag">INTERNAL</strong>
-      <span class="phase-banner__text">This service is used to record and evidence an HR systems compliance review.</span>
+      <span class="phase-banner__text">CONFIDENTIAL · REGISTERED MANAGER INTERVIEW</span>
     </div>
 
     <section class="service-name" aria-label="Service name">
       <div class="service-name__box">
-        <strong class="service-name__text">HR Portal Compliance Demonstration and Registered Manager Interview</strong>
-        <span class="service-name__subtext">Recorded HR portal walkthrough followed by a generic Registered Manager compliance interview</span>
+        <strong class="service-name__text">Registered Manager Compliance Interview</strong>
+        <span class="service-name__subtext">Sponsored workers’ concerns, HR handling and organisational governance</span>
       </div>
     </section>
 
@@ -43,10 +43,18 @@
       <a class="back-link" href="#" onclick="history.back(); return false;">Back</a>
     </p>
 
-    <h1>HR compliance check</h1>
-    <h2 class="section-heading">This is a live recorded demonstration.</h2>
+    <h1>Internal Governance Review</h1>
+    <section class="case-details" aria-label="Interview details">
+      <label>Participant name<input id="participantName" autocomplete="name" placeholder="Enter full name"></label>
+      <label>Interview reference<input id="interviewReference" value="UKVI-EK-1920-1938AH" readonly aria-readonly="true"></label>
+      <label>Interview date<input id="interviewDate" type="date" readonly aria-readonly="true"></label>
+      <label>Reviewer names and roles<input id="reviewerName" value="Tristan (Enforcement); Shelina Mainlim" readonly aria-readonly="true"></label>
+    </section>
+    <p class="opening-statement">Please answer accurately and identify where information is outside your knowledge. You may ask for clarification or identify records that need to be checked before giving an answer.</p>
+    
 
-    <div class="summary" role="region" aria-label="Compliance check summary">
+    <details class="review-details"><summary>Review details &amp; preparation</summary>
+    <div class="summary" role="region" aria-label="Review details">
       <div class="summary__row">
         <div class="summary__key">Organisation</div>
         <div class="summary__value">Comforts Independent Living Care Ltd</div>
@@ -54,7 +62,7 @@
       <div class="summary__divider" role="presentation"></div>
       <div class="summary__row">
         <div class="summary__key">Review type</div>
-        <div class="summary__value">HR Portal Functionality and Compliance Evidence Check</div>
+        <div class="summary__value">Sponsored Workers’ Concerns and HR Handling Review</div>
       </div>
       <div class="summary__divider" role="presentation"></div>
       <div class="summary__row">
@@ -63,8 +71,8 @@
       </div>
       <div class="summary__divider" role="presentation"></div>
       <div class="summary__row summary__row--total">
-        <div class="summary__key">Recording</div>
-        <div class="summary__value">Camera, microphone and the demonstration screen should be available throughout the review.</div>
+        <div class="summary__key">Interview format</div>
+        <div class="summary__value">Introductions, responsibilities, concerns and follow-up actions.</div>
       </div>
     </div>
 
@@ -73,10 +81,12 @@
       <div class="warning__content">
         <h3 class="warning__title">Before you continue</h3>
         <p class="warning__text">Use test or appropriately redacted records wherever possible. Do not display unnecessary special-category data, passwords, full bank details or unrelated confidential information.</p>
-        <p class="warning__text">The presenter should demonstrate each requested function on screen and explain the associated process, access controls, evidence and audit trail.</p>
-        <p class="warning__text">The red outline and recording indicator will remain visible while the session is active.</p>
+        <p class="warning__text">Answer each question in your capacity as Registered Manager and identify relevant records or outstanding actions.</p>
+        <p class="warning__text">The interview begins with introductions before moving on to the concerns and their handling.</p>
       </div>
     </div>
+
+    </details>
 
     <section class="status-grid" aria-label="Session status">
       <article class="status-card">
@@ -88,41 +98,75 @@
         <strong class="status-card__value" id="microphoneState">Not active</strong>
       </article>
       <article class="status-card">
-        <span class="status-card__label">Screen recording</span>
+        <span class="status-card__label">Interview status</span>
         <strong class="status-card__value" id="screenState">Not active</strong>
       </article>
       <article class="status-card">
         <span class="status-card__label">Audit session</span>
-        <strong class="status-card__value">HR-2026-00192</strong>
+        <strong class="status-card__value">Internal governance review</strong>
       </article>
     </section>
 
-    <section class="qa" aria-label="Live HR compliance demonstration questions">
+    <div class="actions">
+      <div class="recording-panel" role="note" aria-label="Interview session notice">
+        <div class="recording-panel__badge">
+          <span class="recording-badge">REC</span>
+          <span class="recording-panel__title">Ready to begin?</span>
+        </div>
+        <p class="recording-panel__text">Begin with five introductory questions, then continue to the review. You can move backwards and forwards at your own pace.</p>
+      </div>
+
+      <div class="start-deadline" id="startDeadline" hidden>
+        <span class="start-deadline__message">The meeting must start within 3 minutes · <strong id="startDeadlineTime">03:00</strong></span>
+      </div>
+      <div class="recording-controls" aria-label="Interview controls">
+        <button type="button" id="recToggle" class="rec-toggle rec-toggle--off" aria-pressed="false" disabled>
+          <span class="rec-dot" aria-hidden="true"><svg class="rec-mic" viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Zm5-3a1 1 0 1 0-2 0 3 3 0 0 1-6 0 1 1 0 1 0-2 0 5 5 0 0 0 4 4.9V18H9a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-2v-2.1A5 5 0 0 0 17 11Z"/></svg></span>
+          <span id="recToggleText">Start interview</span>
+        </button>
+        <div class="rec-status" aria-live="polite">
+          <span class="rec-status__label" id="recStatusLabel">Not started</span>
+          <span class="rec-status__sep">•</span>
+          <span class="rec-timer" id="recTimer">00:00</span>
+        </div>
+      </div>
+
+      <div class="consent" role="group" aria-label="Consent and authority">
+        <label class="consent__label">
+          <input type="checkbox" id="consentCheck" class="consent__checkbox" />
+          <span class="consent__text">I confirm that I am ready to take part in this interview and that confidential information will be appropriately protected.</span>
+        </label>
+        <p class="consent__hint" id="consentHint">Confirm you are ready before starting the interview.</p>
+      </div>
+    </div>
+
+
+    <section class="qa" aria-label="Registered Manager interview questions">
       <div class="qa__header">
-        <h3 class="qa__title">HR portal demonstration checklist</h3>
-        <p class="qa__subtitle">Questions appear one at a time after recording starts. Demonstrate the requested feature, explain the process and show the relevant audit evidence.</p>
+        <h3 class="qa__title">Registered Manager interview</h3>
+        <p class="qa__subtitle">Interview questions appear one at a time after the session starts.</p>
       </div>
 
       <div class="qa__body">
         <div class="review-banner review-banner--hidden" id="reviewBanner" aria-live="polite">
           <div class="review-banner__icon" aria-hidden="true">✓</div>
           <div class="review-banner__track">
-            <span class="review-banner__text">HR Compliance Reviewer is observing this demonstration. Recording integrity check active.</span>
+            <span class="review-banner__text">Identify relevant evidence and distinguish established facts from matters still under investigation.</span>
           </div>
         </div>
 
-        <div class="qa__meta" aria-live="polite">
+        <div class="panel-presence" id="panelPresence" role="status" hidden><span class="panel-avatar" aria-hidden="true">PR<span class="panel-presence__dot"></span></span><span class="panel-copy"><strong>Participant joined — simulated detection</strong><span class="panel-presence__sub">Test event · Tristan (Enforcement) · Shelina Mainlim</span></span><span class="panel-activity" aria-hidden="true"><span></span><span></span><span></span></span></div><div class="qa__meta" aria-live="polite">
           <div class="qa__metaRow">
             <div>
-              <span class="qa__section" id="qaSection">Recording required</span>
-              <span class="qa__liveTitle">Compliance demonstration</span>
+              <span class="qa__section" id="qaSection">Ready when you are</span>
+              <span class="qa__liveTitle">Registered Manager interview</span>
             </div>
-            <span class="qa__liveBadge" id="qaLiveBadge" aria-label="Live recording">
+            <span class="qa__liveBadge" id="qaLiveBadge" aria-label="Interview in progress">
               <span class="qa__liveDot" aria-hidden="true"></span>LIVE
             </span>
           </div>
           <div class="qa__metaRow qa__metaRow--secondary">
-            <span class="qa__number" id="qaNumber">Questions will appear after recording has started.</span>
+            <span class="qa__number" id="qaNumber">Questions will appear after the interview has started.</span>
           </div>
         </div>
 
@@ -140,63 +184,36 @@
               <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
               <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
             </div>
-            <span class="rec-visual__dot"></span>
+            <span class="rec-visual__dot"></span><span class="mic-live-label" id="micLiveLabel">Connecting microphone…</span>
           </div>
         </div>
 
+        <div class="evidence-notes" id="evidenceNotes" hidden>
+          <label for="evidenceReference">Evidence references / follow-up notes <span>(optional)</span></label>
+          <textarea id="evidenceReference" rows="2" placeholder="Identify a document, date or action to follow up. Avoid unnecessary personal information."></textarea>
+          <small>Notes remain in this tab only and are cleared when the page is refreshed.</small>
+        </div>
+        <div class="closing-declaration" id="closingDeclaration" hidden>
+          <label><input type="checkbox" id="closingConfirm"> I confirm that my responses are accurate to the best of my knowledge, including any qualifications or outstanding matters I have identified.</label>
+        </div>
         <div class="qa__progress" role="progressbar" aria-label="Question progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <div class="qa__progress-bar" id="qaProgressBar"></div>
         </div>
-        <p class="qa__lockNote" id="qaLockNote">Confirm consent and start recording before the compliance questions are shown.</p>
+        <p class="qa__lockNote" id="qaLockNote">Confirm you are ready and start the interview to see the questions.</p>
       </div>
 
-      <div class="qa__footer" role="note"><strong>Evidence standard:</strong> demonstrate the function, identify who can access it, show how changes are recorded and explain how exceptions are escalated.</div>
+      <div class="qa__footer" role="note"><strong>Interview focus:</strong> sponsored workers’ concerns, the handling of those concerns by HR, investigation findings and outstanding actions.</div>
     </section>
 
-    <p class="body-text body-text--subtle">This interface is an internal demonstration aid. It does not itself capture or upload the screen; browser permission is used for camera and microphone preview.</p>
+    <p class="body-text body-text--subtle live-interview-notice" id="liveInterviewNotice" hidden>Live interview in progress</p>
 
-    <div class="actions">
-      <div class="recording-panel" role="note" aria-label="Session recording notice">
-        <div class="recording-panel__badge">
-          <span class="recording-badge">REC</span>
-          <span class="recording-panel__title">Session recording control</span>
-        </div>
-        <p class="recording-panel__text">Select “Start recording” when the presenter is ready. During recording, the page displays a fixed red outline and a visible screen-recording timer.</p>
-      </div>
 
-      <div class="consent" role="group" aria-label="Consent and authority">
-        <label class="consent__label">
-          <input type="checkbox" id="consentCheck" class="consent__checkbox" />
-          <span class="consent__text">I confirm that all participants have been informed of the recording, that I am authorised to demonstrate the HR portal, and that confidential information will be appropriately protected.</span>
-        </label>
-        <p class="consent__hint" id="consentHint">Confirm consent before starting the recording.</p>
-      </div>
 
-      <div class="recording-controls" aria-label="Recording controls">
-        <button type="button" id="recToggle" class="rec-toggle rec-toggle--off" aria-pressed="false" disabled>
-          <span class="rec-dot" aria-hidden="true"><svg class="rec-mic" viewBox="0 0 24 24"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3Zm5-3a1 1 0 1 0-2 0 3 3 0 0 1-6 0 1 1 0 1 0-2 0 5 5 0 0 0 4 4.9V18H9a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-2v-2.1A5 5 0 0 0 17 11Z"/></svg></span>
-          <span id="recToggleText">Start recording</span>
-        </button>
-        <div class="rec-status" aria-live="polite">
-          <span class="rec-status__label" id="recStatusLabel">Not recording</span>
-          <span class="rec-status__sep">•</span>
-          <span class="rec-timer" id="recTimer">00:00</span>
-        </div>
-      </div>
-
-      <a class="button button--disabled" id="submitBtn" href="#" aria-disabled="true">Submit compliance check</a>
-    </div>
-
-    <ul class="link-list">
-      <li><a href="#">Save and return later</a></li>
-      <li><a href="#">Review demonstration record</a></li>
-      <li><a href="#">Export compliance summary</a></li>
-    </ul>
   </main>
 
   <aside class="cam-float" id="camFloat" aria-label="Live camera preview">
     <div class="cam-float__drag" id="camDrag">
-      <span class="cam__title">Live HR demonstration</span>
+      <span class="cam__title">Session preview</span>
       <span class="cam__status" id="camStatus">Off</span>
     </div>
     <div class="cam__frame">
@@ -206,17 +223,16 @@
     </div>
     <div class="cam__signals">
       <span id="camMicSignal">Microphone off</span>
-      <span id="camScreenSignal">Screen recording off</span>
+      <span id="camScreenSignal">Interview status off</span>
     </div>
-    <p class="cam__note">Local camera preview. Browser permission is required.</p>
+    <p class="cam__note">Drag the header to move the preview. Camera permission is required.</p>
+    <button type="button" class="camera-toggle" id="cameraToggle">Enable camera</button>
   </aside>
 
   <footer class="app-footer" role="contentinfo">
     <div class="container app-footer__inner">
-      <div class="app-footer__links">
-        <a href="#">Privacy</a><a href="#">Information governance</a><a href="#">Accessibility</a><a href="#">Support</a>
-      </div>
-      <p class="app-footer__note">HR Compliance Portal Interface — internal use only.</p>
+
+      <p class="app-footer__note">Manager Review Interface — internal use only.</p>
     </div>
   </footer>
 
@@ -232,7 +248,7 @@
       const screenRecorderTimer = $("screenRecorderTimer");
       const consentCheck = $("consentCheck");
       const consentHint = $("consentHint");
-      const submitBtn = $("submitBtn");
+
       const qaSection = $("qaSection");
       const qaNumber = $("qaNumber");
       const qaQuestion = $("qaQuestion");
@@ -271,97 +287,258 @@
       let startTime = 0;
       let elapsedMs = 0;
       let intervalId = null;
+      let readinessInterval = null;
+      function clearReadinessCountdown() {
+        clearInterval(readinessInterval);
+        readinessInterval = null;
+        $("startDeadline").hidden = true;
+      }
+      function beginReadinessCountdown() {
+        clearReadinessCountdown();
+        const deadline = Date.now() + 180000;
+        $("startDeadline").hidden = false;
+        function updateDeadline() {
+          const seconds = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+          $("startDeadlineTime").textContent = Math.floor(seconds / 60).toString().padStart(2, "0") + ":" + (seconds % 60).toString().padStart(2, "0");
+          if (seconds === 0) {
+            clearInterval(readinessInterval);
+            readinessInterval = null;
+            $("startDeadlineTime").textContent = "00:00 — Please start the interview now";
+          }
+        }
+        updateDeadline();
+        readinessInterval = setInterval(updateDeadline, 250);
+      }
+      const interviewNotes = {};
+      $("evidenceReference").addEventListener("input", () => { interviewNotes[idx] = $("evidenceReference").value; });
+      $("closingConfirm").addEventListener("change", () => { if (isRecording && idx === questions.length - 1) qaNext.disabled = !$("closingConfirm").checked; });
+      const today = new Date();
+      $("interviewDate").value = today.getFullYear() + "-" + String(today.getMonth()+1).padStart(2,"0") + "-" + String(today.getDate()).padStart(2,"0");
       let idx = 0;
+      let panelChimed = false;
+      let finalQuestionChimed = false;
+      function playPanelChime(isFinal = false, sessionEnded = false) {
+        if (sessionEnded) { /* Completion sound is triggered by End session. */ } else if (isFinal) { if (finalQuestionChimed) return; finalQuestionChimed = true; }
+        else { if (panelChimed) return; panelChimed = true; }
+        try {
+          const AudioCtor = window.AudioContext || window.webkitAudioContext;
+          if (!AudioCtor) return;
+          const chime = new AudioCtor();
+          chime.resume().then(() => {
+            (sessionEnded ? [880, 880, 880] : [660, 880]).forEach((frequency, i) => {
+              const tone = chime.createOscillator();
+              const volume = chime.createGain();
+              const at = chime.currentTime + i * (sessionEnded ? 0.22 : 0.16);
+              tone.frequency.value = frequency;
+              volume.gain.setValueAtTime(0, at);
+              volume.gain.linearRampToValueAtTime(0.07, at + 0.02);
+              volume.gain.exponentialRampToValueAtTime(0.001, at + (sessionEnded ? 0.12 : 0.25));
+              tone.connect(volume); volume.connect(chime.destination);
+              tone.start(at); tone.stop(at + (sessionEnded ? 0.14 : 0.26));
+            });
+            setTimeout(() => { chime.close().catch(() => {}); }, 700);
+          }).catch(() => { chime.close().catch(() => {}); });
+        } catch (_) { /* Sound is optional when browser audio is unavailable. */ }
+      }
 
       const questions = [
-        {phase:"HR Portal Demonstration", section:"Introduction", q:"Introduce the organisation and explain the purpose of the HR portal.", hint:"Identify the presenter, their role, the system owner and the main HR processes managed through the portal.", evidence:"Show: portal home page, organisation name and current user role."},
-        {phase:"HR Portal Demonstration", section:"Governance", q:"Explain who is responsible for maintaining HR records and monitoring compliance.", hint:"Describe HR, manager and administrator responsibilities, including escalation routes.", evidence:"Show: assigned roles, responsibilities or governance information."},
-        {phase:"HR Portal Demonstration", section:"Access control", q:"Demonstrate the available user roles and permissions.", hint:"Compare administrator, HR, manager and employee access. Explain least-privilege controls.", evidence:"Show: role settings and an example of restricted access."},
-        {phase:"HR Portal Demonstration", section:"Access control", q:"Show how a user account is created, amended, suspended and removed.", hint:"Explain approval, identity verification and leaver access removal.", evidence:"Show: user administration screen and audit history."},
-        {phase:"HR Portal Demonstration", section:"Staff overview", q:"Demonstrate the Staff Overview dashboard and explain each status indicator.", hint:"Explain how managers identify overdue, missing or expiring requirements.", evidence:"Show: dashboard widgets, colour coding and filters."},
-        {phase:"HR Portal Demonstration", section:"Right to work", q:"Demonstrate where Right to Work evidence is recorded.", hint:"Explain share-code checks, document retention, check dates and follow-up checks.", evidence:"Show: right-to-work fields, evidence upload and review date."},
-        {phase:"HR Portal Demonstration", section:"Right to work", q:"Show how visa and immigration expiry dates are monitored.", hint:"Explain advance reminders, responsibility for follow-up and escalation for missing evidence.", evidence:"Show: expiry alert, reminder settings and compliance status."},
-        
-        {phase:"HR Portal Demonstration", section:"DBS", q:"Show how DBS checks are recorded and monitored.", hint:"Explain check level, certificate date, update service status, renewal trigger and risk escalation.", evidence:"Show: DBS fields, status and reminder."},
-        {phase:"HR Portal Demonstration", section:"Employment", q:"Show where contracts, job descriptions and terms are stored.", hint:"Explain version control, signature or acknowledgement and access restrictions.", evidence:"Show: employment document area and latest document version."},
-        
-        {phase:"HR Portal Demonstration", section:"Sponsor compliance", q:"Show the process for recording and escalating a potential visa-condition concern.", hint:"Explain investigation, decision-making, documentation and authorised reporting.", evidence:"Show: concern record, escalation status and decision note."},
-        {phase:"HR Portal Demonstration", section:"Attendance", q:"Demonstrate how rotas, attendance, lateness and missed shifts are recorded.", hint:"Explain how patterns are identified and linked to supervision or management action.", evidence:"Show: rota or attendance history and exception flags."},
-        {phase:"HR Portal Demonstration", section:"Attendance", q:"Show how repeated unavailability or refusal of shifts is documented.", hint:"Explain consistency checks, worker communication, welfare consideration and escalation thresholds.", evidence:"Show: availability history, notes and management actions."},
-        {phase:"HR Portal Demonstration", section:"Leave", q:"Demonstrate annual-leave request, approval, rejection and amendment.", hint:"Explain balance calculations, authorisation and the audit trail.", evidence:"Show: leave request workflow and manager decision."},
-        {phase:"HR Portal Demonstration", section:"Absence", q:"Show how sickness absence and return-to-work information are recorded.", hint:"Explain confidentiality, access controls, triggers and follow-up.", evidence:"Show: absence record using test data."},
-        {phase:"HR Portal Demonstration", section:"Training", q:"Demonstrate where mandatory training records are stored.", hint:"Show course, completion date, provider, certificate and renewal date.", evidence:"Show: training matrix and one employee training record."},
-        {phase:"HR Portal Demonstration", section:"Training", q:"Show how overdue or expiring training is identified and escalated.", hint:"Explain reminders, manager action and restriction from duties where appropriate.", evidence:"Show: overdue alert, assigned action and completion status."},
-        
-        
-        {phase:"HR Portal Demonstration", section:"Conduct", q:"Show how disciplinary, grievance and informal-management records are stored.", hint:"Explain restricted access, document retention, outcomes and appeal records.", evidence:"Show: case area with test or redacted information."},
-        {phase:"HR Portal Demonstration", section:"Safeguarding", q:"Demonstrate how a safeguarding concern or incident is recorded and escalated.", hint:"Explain immediate action, notifications, evidence, confidentiality and management oversight.", evidence:"Show: incident workflow, status and action log."},
-        {phase:"HR Portal Demonstration", section:"Documents", q:"Demonstrate uploading, viewing, replacing, archiving and deleting a document.", hint:"Explain file restrictions, permissions, retention rules and recovery controls.", evidence:"Show: document repository and version history."},
-        {phase:"HR Portal Demonstration", section:"Policies", q:"Show how a policy is published and assigned to staff.", hint:"Explain version control, effective date, target audience and review date.", evidence:"Show: policy record and assigned employee group."},
-        {phase:"HR Portal Demonstration", section:"Policies", q:"Demonstrate staff acknowledgement or electronic confirmation of a policy.", hint:"Explain how non-acknowledgement is followed up and evidenced.", evidence:"Show: acknowledgement status and timestamp."},
-        {phase:"HR Portal Demonstration", section:"Forms", q:"Show how staff forms or declarations are issued and completed.", hint:"Include conditional questions, mandatory fields, submission tracking and manager review.", evidence:"Show: one test form from issue to submission."},
-        {phase:"HR Portal Demonstration", section:"Notifications", q:"Demonstrate compliance notifications and reminders.", hint:"Include DBS, visa, passport, training, supervision, probation and document-review alerts.", evidence:"Show: notification centre and reminder configuration."},
-        {phase:"HR Portal Demonstration", section:"Search", q:"Demonstrate searching and filtering staff records.", hint:"Search by name, employee ID, email, status, location and compliance condition.", evidence:"Show: search results and filters."},
-        {phase:"HR Portal Demonstration", section:"Reports", q:"Generate a compliance report.", hint:"Explain the report period, filters, status definitions and export controls.", evidence:"Show: report output and export option."},
-        {phase:"HR Portal Demonstration", section:"Reports", q:"Generate training, employee and expiry reports.", hint:"Explain how managers use them for monitoring and follow-up.", evidence:"Show: at least two report types and filters."},
-        {phase:"HR Portal Demonstration", section:"Audit", q:"Demonstrate the portal audit log.", hint:"Show sign-ins, record changes, document actions and administrative changes.", evidence:"Show: audit event, user, timestamp and affected record."},
-        {phase:"HR Portal Demonstration", section:"Data quality", q:"Explain how incomplete, inconsistent or duplicate records are identified.", hint:"Demonstrate validation, exception reporting and correction controls.", evidence:"Show: validation message or incomplete-record report."},
-        {phase:"HR Portal Demonstration", section:"Security", q:"Explain password, session and authentication controls.", hint:"Include password policy, account lockout, session timeout and multi-factor authentication if available.", evidence:"Show: security settings without exposing credentials."},
-        
-        {phase:"HR Portal Demonstration", section:"Business continuity", q:"Explain backup, restore and service-continuity arrangements.", hint:"Include backup frequency, access, testing, incident response and supplier responsibility.", evidence:"Show: documented backup status or system information where available."},
-        {phase:"HR Portal Demonstration", section:"Integration", q:"Explain any links between the HR portal and rota, payroll, training or care systems.", hint:"Describe data ownership, update frequency, failure handling and reconciliation.", evidence:"Show: integration settings or a controlled example."},
-        {phase:"HR Portal Demonstration", section:"Closing review", q:"Identify any known limitations, incomplete functions or current compliance actions.", hint:"Be clear about temporary workarounds, owners and target completion dates.", evidence:"Show: action tracker or improvement plan."},
-        {phase:"HR Portal Demonstration", section:"Closing review", q:"Confirm that the demonstration was accurate and that the evidence shown reflects the current HR process.", hint:"State any exceptions and confirm who will approve the final compliance record.", evidence:"Show: final review or approval stage."},
-        {phase:"Registered Manager Compliance Interview", section:"Role and responsibilities", q:"Please confirm your role and responsibilities within the organisation.", hint:"Explain your responsibilities during the period being reviewed and identify the areas for which you were accountable.", evidence:"Evidence or discussion point: current job description, organisational chart or delegated responsibilities."},
-        {phase:"Registered Manager Compliance Interview", section:"Role and responsibilities", q:"What supervisory responsibilities do you have in relation to employees?", hint:"Explain which employees or services you supervise and the limits of your authority.", evidence:"Evidence or discussion point: supervision structure, reporting lines and manager allocation."},
-        {phase:"Registered Manager Compliance Interview", section:"Role and responsibilities", q:"How frequently do you have direct contact with employees?", hint:"Describe routine contact, supervision, operational visits, telephone contact and emergency contact.", evidence:"Evidence or discussion point: rotas, supervision records, meeting logs or management notes."},
-        {phase:"Registered Manager Compliance Interview", section:"Role and responsibilities", q:"How would you describe your usual working relationship with employees?", hint:"Explain how you remain supportive, professional, consistent and appropriately separate from personal relationships.", evidence:"Discussion point: normal management approach and expected standards."},
-        {phase:"Registered Manager Compliance Interview", section:"Professional boundaries", q:"How do you maintain appropriate professional boundaries with employees?", hint:"Describe the practical boundaries you apply in meetings, messages, visits, transport, social contact and personal discussions.", evidence:"Evidence or discussion point: relevant policy, manager guidance or training."},
-        {phase:"Registered Manager Compliance Interview", section:"Professional boundaries", q:"Under what circumstances do you communicate with employees outside normal working hours?", hint:"Explain when contact is operationally necessary and how unnecessary or excessive contact is avoided.", evidence:"Evidence or discussion point: on-call arrangements, communication policy or examples."},
-        {phase:"Registered Manager Compliance Interview", section:"Professional boundaries", q:"When out-of-hours communication is necessary, how is its purpose documented?", hint:"Explain how messages, calls, decisions and follow-up actions are retained or recorded.", evidence:"Evidence or discussion point: work telephone records, HR notes, handover or incident log."},
-        {phase:"Registered Manager Compliance Interview", section:"Professional boundaries", q:"Do managers use employees’ personal telephone numbers for work-related communication?", hint:"Explain when this is permitted, what alternatives exist and how privacy is protected.", evidence:"Evidence or discussion point: communication policy, work phone arrangements or staff consent process."},
-        {phase:"Registered Manager Compliance Interview", section:"Professional boundaries", q:"How do you ensure that communications with employees remain work-related and professional?", hint:"Include tone, timing, content, frequency, confidentiality and record keeping.", evidence:"Discussion point: examples of appropriate management communication."},
-        {phase:"Registered Manager Compliance Interview", section:"Professional boundaries", q:"What is your understanding of appropriate professional boundaries between a manager and an employee?", hint:"Explain the difference between supportive management and conduct that may become overly personal, intrusive or inappropriate.", evidence:"Discussion point: standards expected from all managers."},
-        {phase:"Registered Manager Compliance Interview", section:"Personal communication", q:"In what circumstances might a manager discuss non-work matters with an employee?", hint:"Explain how welfare conversations can be appropriate while respecting privacy and avoiding intrusive questioning.", evidence:"Discussion point: welfare support, consent and relevance to work."},
-        {phase:"Registered Manager Compliance Interview", section:"Personal communication", q:"How do you decide whether questions about an employee’s personal circumstances are necessary and appropriate?", hint:"Explain relevance, consent, confidentiality and how the information will be used.", evidence:"Evidence or discussion point: welfare, absence or reasonable-adjustment procedure."},
-        {phase:"Registered Manager Compliance Interview", section:"Personal communication", q:"What should a manager do if an employee says that a conversation or message made them uncomfortable?", hint:"Explain the immediate response, apology where appropriate, documentation, escalation and steps to prevent repetition.", evidence:"Evidence or discussion point: concern-reporting and management escalation process."},
-        {phase:"Registered Manager Compliance Interview", section:"Personal communication", q:"How are concerns about a manager’s communication investigated?", hint:"Explain impartiality, confidentiality, evidence gathering and protection from retaliation.", evidence:"Evidence or discussion point: grievance, dignity-at-work or investigation procedure."},
-        {phase:"Registered Manager Compliance Interview", section:"Offers of assistance", q:"Under what circumstances might a manager offer an employee practical assistance, such as transport?", hint:"Explain when assistance may be operationally justified and how favouritism or misunderstanding is avoided.", evidence:"Discussion point: emergencies, lone working, transport policy and equal treatment."},
-        {phase:"Registered Manager Compliance Interview", section:"Offers of assistance", q:"How should any offer of practical assistance to an employee be documented?", hint:"Explain who should be informed and how the purpose and boundaries should be recorded.", evidence:"Evidence or discussion point: management note, rota record or incident log."},
-        {phase:"Registered Manager Compliance Interview", section:"Offers of assistance", q:"How do you ensure that offers of assistance are made consistently and fairly?", hint:"Explain how comparable situations are treated and how individual preferences are respected.", evidence:"Discussion point: consistency, consent and alternatives."},
-        {phase:"Registered Manager Compliance Interview", section:"Offers of assistance", q:"How would you respond if an offer of assistance could reasonably have been misunderstood?", hint:"Explain reflection, clarification, apology where appropriate, reporting and future safeguards.", evidence:"Discussion point: learning and corrective action."},
-        {phase:"Registered Manager Compliance Interview", section:"Concerns and communication", q:"How would you normally become aware that a concern had been raised about management conduct?", hint:"Explain formal and informal reporting routes and who is responsible for notifying the manager.", evidence:"Evidence or discussion point: complaint, grievance or safeguarding process."},
-        {phase:"Registered Manager Compliance Interview", section:"Concerns and communication", q:"What should your immediate response be when a concern is raised about your own conduct?", hint:"Explain preservation of evidence, non-retaliation, cooperation and avoiding direct influence over witnesses.", evidence:"Discussion point: fair investigation and professional response."},
-        {phase:"Registered Manager Compliance Interview", section:"Concerns and communication", q:"Should direct communication with relevant employees continue after a concern is raised?", hint:"Explain when contact should stop, when operational contact may remain necessary and who should authorise it.", evidence:"Evidence or discussion point: temporary communication plan or management instruction."},
-        {phase:"Registered Manager Compliance Interview", section:"Concerns and communication", q:"Where communication remains necessary, how do you ensure it stays appropriate?", hint:"Explain use of formal channels, witnesses, written records, restricted topics and management oversight.", evidence:"Evidence or discussion point: agreed communication protocol."},
-        {phase:"Registered Manager Compliance Interview", section:"Management actions", q:"What temporary restrictions may be placed on a manager while concerns are reviewed?", hint:"Explain that precautionary measures are neutral and may include changed reporting lines, limited contact or removal from particular duties.", evidence:"Discussion point: proportionality and non-prejudgment."},
-        {phase:"Registered Manager Compliance Interview", section:"Management actions", q:"How would you demonstrate full compliance with temporary management instructions?", hint:"Explain acknowledgement, implementation, record keeping and escalation where an instruction is unclear.", evidence:"Evidence or discussion point: written instruction and compliance record."},
-        {phase:"Registered Manager Compliance Interview", section:"Management actions", q:"How are temporary management arrangements communicated to affected staff?", hint:"Explain confidentiality, operational continuity and the need to avoid unnecessary disclosure.", evidence:"Evidence or discussion point: temporary reporting structure or staff communication."},
-        {phase:"Registered Manager Compliance Interview", section:"Management actions", q:"Why might temporary arrangements be necessary during an investigation?", hint:"Explain protection of staff, evidence integrity, service continuity and fairness to all parties.", evidence:"Discussion point: neutral risk management."},
-        {phase:"Registered Manager Compliance Interview", section:"Conduct and allegations", q:"How do you ensure that your language cannot reasonably be interpreted as threatening or intimidating?", hint:"Explain tone, wording, body language, context and de-escalation.", evidence:"Discussion point: managing difficult conversations safely."},
-        {phase:"Registered Manager Compliance Interview", section:"Conduct and allegations", q:"How do you manage your tone and volume during disagreement or challenge?", hint:"Explain techniques used to remain calm and when to pause or end a conversation.", evidence:"Evidence or discussion point: conflict-management training or supervision."},
-        {phase:"Registered Manager Compliance Interview", section:"Conduct and allegations", q:"What should a manager do if they recognise that their behaviour may have caused an employee distress?", hint:"Explain immediate safeguarding, acknowledgement, documentation, support and escalation.", evidence:"Discussion point: accountability and corrective action."},
-        {phase:"Registered Manager Compliance Interview", section:"Conduct and allegations", q:"How should a manager respond to allegations about their conduct?", hint:"Explain cooperation, factual response, evidence preservation, confidentiality and avoidance of retaliation.", evidence:"Evidence or discussion point: investigation response process."},
-        {phase:"Registered Manager Compliance Interview", section:"Monitoring and contact", q:"How often do you attend services or workplaces for which you have management responsibility?", hint:"Explain the expected frequency and the operational reasons for visits.", evidence:"Evidence or discussion point: service visit schedule, rota or management calendar."},
-        {phase:"Registered Manager Compliance Interview", section:"Monitoring and contact", q:"How do you determine whether a workplace visit is operationally required?", hint:"Explain planned monitoring, incidents, staffing issues, quality checks and urgent service needs.", evidence:"Discussion point: objective reason for attendance."},
-        {phase:"Registered Manager Compliance Interview", section:"Monitoring and contact", q:"How are management visits recorded or documented?", hint:"Explain date, purpose, persons present, observations, actions and follow-up.", evidence:"Evidence or discussion point: visit log, audit record or service note."},
-        {phase:"Registered Manager Compliance Interview", section:"Monitoring and contact", q:"How do you ensure that workplace visits are not targeted at particular employees without a legitimate reason?", hint:"Explain planned schedules, oversight, documented purpose and fair treatment.", evidence:"Discussion point: avoiding perceived surveillance or harassment."},
-        {phase:"Registered Manager Compliance Interview", section:"Sponsored workers", q:"What is your understanding of the organisation’s responsibilities towards sponsored workers?", hint:"Include genuine employment, salary, hours, work location, record keeping, reporting duties and fair treatment.", evidence:"Evidence or discussion point: sponsor compliance process and manager guidance."},
-        {phase:"Registered Manager Compliance Interview", section:"Sponsored workers", q:"What steps do you take to ensure sponsored workers can raise concerns safely?", hint:"Explain confidential routes, non-retaliation, independent escalation and access to policies.", evidence:"Evidence or discussion point: whistleblowing, grievance and safeguarding routes."},
-        {phase:"Registered Manager Compliance Interview", section:"Sponsored workers", q:"How should immigration status be handled during workplace disagreements?", hint:"Explain that immigration status must not be used as pressure, threat or leverage and that genuine compliance matters must follow formal procedures.", evidence:"Discussion point: dignity, fairness and authorised escalation."},
-        {phase:"Registered Manager Compliance Interview", section:"Sponsored workers", q:"How do you ensure sponsored workers are treated consistently with other employees?", hint:"Explain objective decisions, equal access to policies, supervision, training, complaints procedures and welfare support.", evidence:"Evidence or discussion point: comparative management records and policy application."},
-        {phase:"Registered Manager Compliance Interview", section:"Sponsored workers", q:"How are potential sponsor-compliance concerns documented and escalated?", hint:"Explain who investigates, who decides whether reporting is required and how the rationale is recorded.", evidence:"Evidence or discussion point: compliance concern workflow and decision log."},
-        {phase:"Registered Manager Compliance Interview", section:"Policies and training", q:"Are you familiar with the organisation’s Dignity at Work Policy?", hint:"Summarise the standards it requires from managers and employees.", evidence:"Evidence: current policy and manager acknowledgement."},
-        {phase:"Registered Manager Compliance Interview", section:"Policies and training", q:"Are you familiar with the organisation’s Anti-Harassment and Bullying Policy?", hint:"Explain prohibited conduct, reporting routes, interim protections and investigation responsibilities.", evidence:"Evidence: current policy and manager acknowledgement."},
-        {phase:"Registered Manager Compliance Interview", section:"Policies and training", q:"What training have you received on professional boundaries and appropriate workplace communication?", hint:"Give dates, provider or format, and explain any refresher requirements.", evidence:"Evidence: training record or certificate."},
-        {phase:"Registered Manager Compliance Interview", section:"Policies and training", q:"What other management training supports you in handling complaints, conflict and safeguarding concerns?", hint:"Include investigation, equality, confidentiality, record keeping and sponsor compliance where relevant.", evidence:"Evidence: training matrix or development plan."},
-        {phase:"Registered Manager Compliance Interview", section:"Policies and training", q:"How do you check that your management conduct remains consistent with company policy?", hint:"Explain supervision, audits, feedback, reflective practice and escalation for advice.", evidence:"Evidence or discussion point: manager supervision and quality review."},
-        {phase:"Registered Manager Compliance Interview", section:"Reflection and closing", q:"Looking back at your management practice, is there anything you would handle differently?", hint:"Provide a clear and reflective answer, including any practical changes already made or planned.", evidence:"Discussion point: learning and improvement."},
-        {phase:"Registered Manager Compliance Interview", section:"Reflection and closing", q:"What have you learned from previous concerns, complaints or difficult management situations?", hint:"Focus on changes to communication, boundaries, documentation, oversight and staff support.", evidence:"Evidence or discussion point: action plan, supervision or training."},
-        {phase:"Registered Manager Compliance Interview", section:"Reflection and closing", q:"Is there any additional information you wish the compliance panel to consider?", hint:"Include relevant context without speculating about motives or discussing unrelated personal information.", evidence:"Evidence: identify any supporting record."},
-        {phase:"Registered Manager Compliance Interview", section:"Reflection and closing", q:"Are there any documents, messages, records or witnesses that should be reviewed?", hint:"Identify the item, its relevance, where it is stored and who can lawfully provide it.", evidence:"Evidence: document list or witness list."},
-        {phase:"Registered Manager Compliance Interview", section:"Reflection and closing", q:"Do you confirm that the information you have provided is complete, truthful and accurate to the best of your knowledge?", hint:"Confirm any corrections, qualifications or outstanding evidence before the session ends.", evidence:"Evidence: final verbal confirmation and recorded declaration."}
-      ];
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Introductions and responsibilities",
+    "q": "Please confirm your full name.",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Introductions and responsibilities",
+    "q": "Please confirm your current job title and your role within the organisation.",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Introductions and responsibilities",
+    "q": "How long have you held your current role, and when did you become the Registered Manager?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Introductions and responsibilities",
+    "q": "Please briefly describe your main responsibilities as Registered Manager, including your responsibilities for staff welfare and compliance.",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Introductions and responsibilities",
+    "q": "Please outline the usual process for a member of staff to raise a concern and explain your role in ensuring that the concern is addressed.",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "We understand that concerns or allegations have previously been raised by one or more sponsored workers within the organisation. When did you, as Registered Manager, first become aware of these matters?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "What was your initial understanding of the nature of the concerns being raised by the sponsored workers?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "At the time the concerns were first raised, who within the organisation had responsibility for receiving and managing them?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "What immediate steps were taken to ensure that the sponsored workers were able to raise their concerns freely and without inappropriate influence or interference?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "Were any temporary management arrangements or restrictions introduced while those concerns were being considered? If so, please explain what they were and why they were introduced.",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "Were you provided with full details of the allegations and any supporting evidence at that stage?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "What involvement did the organisation's HR function have in receiving, documenting, assessing and progressing the concerns raised by the sponsored workers?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "Were you satisfied at the time that the concerns were being managed appropriately and in accordance with the organisation's policies and procedures?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "Did information subsequently come to your attention which caused you to question how those concerns had originally been handled by HR?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "What specifically caused you, in your capacity as Registered Manager, to consider that further scrutiny of the HR process was necessary?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "What action did you take once concerns arose regarding the adequacy or impartiality of the original HR process?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "Has there been any investigation conducted by your organisation regarding any of the allegations or concerns raised by either sponsored skilled worker?\n\nIf yes, please explain the nature and scope of that investigation.",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "Did the scope of that investigation extend beyond the original allegations and include an examination of how those allegations had been handled internally?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "As part of that investigation, were the actions and decisions of the individual responsible for the relevant HR functions formally examined?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "What evidence and records were considered when examining the conduct of the HR function, and was the individual concerned given an opportunity to respond to the matters identified?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "Did the investigation identify any failures in the organisation's handling of the sponsored workers' concerns?\n\nIf so, please explain the nature and seriousness of those findings.",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "Were the findings limited to procedural or administrative shortcomings, or did the investigation identify concerns regarding the impartiality, judgement or conduct of the individual carrying out the HR function?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns · 17A",
+    "q": "During your review, did you identify any occasions where the actions of the individual responsible for HR appeared to go beyond poor administration or an error of judgement and raised concerns about whether the process was being handled impartially?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns · 17B",
+    "q": "Did you identify any decisions, communications or omissions by the individual responsible for HR which appeared to disadvantage either sponsored worker or prevent their concerns from being dealt with appropriately? If so, what did you find?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns · 17C",
+    "q": "Taking the evidence as a whole, did the organisation have reason to consider whether the conduct of the individual responsible for HR was deliberate rather than simply the result of a mistake or lack of experience? What led the organisation to investigate that possibility?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "Did the investigation ultimately make any finding that conduct by the individual responsible for HR had been deliberate, inappropriate or malicious?\n\nIf so, what was the evidential basis for that finding and how was that conclusion reached?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "What action has the organisation taken, or does it intend to take, in response to those findings?\n\nIn particular, has consideration been given to suspending or removing the individual concerned from HR responsibilities while any further management or disciplinary process is completed?",
+    "hint": "",
+    "evidence": ""
+  },
+  {
+    "phase": "Registered Manager Compliance Interview",
+    "section": "Sponsored workers’ concerns",
+    "q": "As Registered Manager, what assurance can you provide that:\n\n• the original concerns raised by the sponsored workers will still be considered independently and on their own evidence;\n• any failings identified within the HR function are being addressed;\n• sponsored workers can raise concerns without fear of adverse consequences relating to their immigration or sponsorship status; and\n• appropriate governance arrangements are now in place to prevent similar concerns arising in the future?\n\nPlease also identify any outstanding investigation, management action or corrective action that remains to be completed.",
+    "hint": "",
+    "evidence": ""
+  }
+];
 
       function pad2(n) { return String(n).padStart(2, "0"); }
       function formatTime(ms) {
@@ -376,26 +553,35 @@
       function tick() { elapsedMs = Date.now() - startTime; renderTimer(); }
 
       async function startCamera() {
-        if (camStream) return;
+        if (camStream) return; camPlaceholder.textContent = "Waiting for camera permission…";
         try {
           camStream = await navigator.mediaDevices.getUserMedia({video:{width:640,height:480,facingMode:"user"},audio:false});
-          camVideo.srcObject = camStream;
+          camVideo.srcObject = camStream; await camVideo.play();
           camStatus.textContent = "On";
+            document.getElementById("cameraToggle").textContent = "Turn camera off";
           camStatus.classList.add("cam__status--on");
           camPlaceholder.classList.add("cam__placeholder--hidden");
           cameraState.textContent = "Active";
           cameraState.classList.add("status-card__value--active");
         } catch (err) {
-          camStatus.textContent = "Blocked";
+          if (camStream) stopCamera(); camStatus.textContent = "Unavailable";
           cameraState.textContent = "Permission blocked";
-          console.error("Camera error:", err);
+          const cameraMessages = {
+  NotAllowedError: "Camera access was blocked. Allow camera access in your browser site settings, then select Enable camera again.",
+  NotFoundError: "No webcam was found. Connect a webcam or enable your laptop camera, then try again.",
+  NotReadableError: "The webcam may be in use by another app. Close that app, check your camera privacy switch and try again.",
+  OverconstrainedError: "Your camera could not use these settings. Try another webcam."
+};
+camPlaceholder.textContent = !window.isSecureContext ? "Camera access requires HTTPS or localhost. Open the secure website address." : !navigator.mediaDevices ? "Camera access is unavailable in this browser. Open the page in a current browser with camera support." : (cameraMessages[err.name] || "Could not start the webcam. Check camera permissions and try again.");
+            console.error("Camera error:", err);
         }
       }
       function stopCamera() {
         if (camStream) camStream.getTracks().forEach(t => t.stop());
         camStream = null;
-        camVideo.srcObject = null;
+        camVideo.srcObject = null; camPlaceholder.textContent = "Camera preview";
         camStatus.textContent = "Off";
+          document.getElementById("cameraToggle").textContent = "Enable camera";
         camStatus.classList.remove("cam__status--on");
         camPlaceholder.classList.remove("cam__placeholder--hidden");
         cameraState.textContent = "Not active";
@@ -407,12 +593,14 @@
         try {
           micStream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:false});
           audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          await audioContext.resume();
+          if (!isRecording) { stopAudioMeter(); return; }
           sourceNode = audioContext.createMediaStreamSource(micStream);
           analyser = audioContext.createAnalyser();
-          analyser.fftSize = 64;
-          analyser.smoothingTimeConstant = 0.75;
+          analyser.fftSize = 1024;
+          analyser.smoothingTimeConstant = 0.55;
           sourceNode.connect(analyser);
-          microphoneState.textContent = "Active";
+          microphoneState.textContent = "Active"; document.getElementById("micLiveLabel").textContent = "Microphone live"; if (!isRecording) { stopAudioMeter(); return; }
           microphoneState.classList.add("status-card__value--active");
           camMicSignal.textContent = "Microphone active";
           camMicSignal.classList.add("cam__signal--active");
@@ -420,15 +608,16 @@
           function updateWaveform() {
             if (!analyser) return;
             analyser.getByteFrequencyData(dataArray);
-            const slice = Math.max(1, Math.floor(dataArray.length / recBars.length));
+            const voiceBins = Math.min(dataArray.length, Math.ceil(4000 * analyser.fftSize / audioContext.sampleRate));
+            const slice = Math.max(1, Math.floor(voiceBins / recBars.length));
             recBars.forEach((bar, i) => {
               let sum = 0;
               const start = i * slice;
               const end = Math.min(start + slice, dataArray.length);
               for (let j = start; j < end; j++) sum += dataArray[j];
               const avg = end > start ? sum / (end - start) : 0;
-              const normal = avg / 255;
-              bar.style.height = (4 + normal * 18) + "px";
+              const normal = Math.min(1, (avg / 255) * 1.65);
+              bar.style.height = (4 + normal * 28) + "px";
               bar.style.opacity = String(.4 + normal * .6);
             });
             animationFrameId = requestAnimationFrame(updateWaveform);
@@ -437,7 +626,7 @@
         } catch (err) {
           microphoneState.textContent = "Permission blocked";
           camMicSignal.textContent = "Microphone blocked";
-          console.error("Microphone error:", err);
+          document.getElementById("micLiveLabel").textContent = "Microphone unavailable"; console.error("Microphone error:", err);
         }
       }
       function stopAudioMeter() {
@@ -456,13 +645,10 @@
       }
 
       function updateSubmitState() {
-        const canSubmit = consentCheck.checked && hasRecordingStarted && !isRecording;
-        submitBtn.classList.toggle("button--disabled", !canSubmit);
-        submitBtn.setAttribute("aria-disabled", String(!canSubmit));
-        if (!consentCheck.checked) consentHint.textContent = "Confirm consent before starting the recording.";
-        else if (!hasRecordingStarted) consentHint.textContent = "Consent confirmed. Start and then complete the recording.";
-        else if (isRecording) consentHint.textContent = "Recording is active. Stop recording before submission.";
-        else consentHint.textContent = "Consent confirmed and recording completed. The check can now be submitted.";
+        if (!consentCheck.checked) consentHint.textContent = "Confirm you are ready before starting the interview.";
+        else if (!hasRecordingStarted) consentHint.textContent = "Ready confirmed. You can start the interview.";
+        else if (isRecording) consentHint.textContent = "Interview in progress. End the interview when you are finished.";
+        else consentHint.textContent = "Interview ended.";
       }
 
       function setQuestionsVisible(visible) {
@@ -473,8 +659,11 @@
         qaLiveBadge.style.display = visible ? "inline-flex" : "none";
         recVisual.classList.toggle("rec-visual--hidden", !visible);
         if (!visible) {
-          qaSection.textContent = "Recording required";
-          qaNumber.textContent = "Questions will appear after recording has started.";
+          $("evidenceNotes").hidden = true;
+          $("closingDeclaration").hidden = true;
+          reviewBanner.classList.add("review-banner--hidden"); document.getElementById("panelPresence").hidden = true;
+          qaSection.textContent = "Ready when you are";
+          qaNumber.textContent = "Questions will appear after the interview has started.";
           qaQuestion.textContent = qaHint.textContent = qaEvidence.textContent = "";
           qaProgressBar.style.width = "0%";
           qaProgress.setAttribute("aria-valuenow", "0");
@@ -483,41 +672,56 @@
 
       function renderQuestion() {
         const item = questions[idx];
+        $("evidenceNotes").hidden = false;
+        $("evidenceReference").value = interviewNotes[idx] || "";
+        $("closingDeclaration").hidden = idx !== questions.length - 1;
         const current = idx + 1;
         const pct = Math.round((current / questions.length) * 100);
         qaSection.textContent = item.phase + " · " + item.section;
         qaNumber.textContent = "Question " + current + " of " + questions.length;
-        qaQuestion.textContent = item.q;
+        qaQuestion.textContent = item.q; qaCard.scrollTop = 0;
         qaHint.textContent = item.hint;
         qaEvidence.textContent = item.evidence;
+        qaEvidence.hidden = !item.evidence;
+        qaHint.hidden = !item.hint;
+        qaNext.disabled = idx === questions.length - 1 && !$("closingConfirm").checked;
         const isManagerPhase = item.phase === "Registered Manager Compliance Interview";
         qaCard.classList.toggle("qa__card--manager", isManagerPhase);
         document.querySelector(".qa").classList.toggle("qa--manager", isManagerPhase);
         qaProgressBar.style.width = pct + "%";
         qaProgress.setAttribute("aria-valuenow", String(pct));
         qaPrevious.disabled = idx === 0;
-        qaNext.textContent = idx === questions.length - 1 ? "Finish questions" : "Next question";
-        if (idx >= 2) reviewBanner.classList.remove("review-banner--hidden");
+        qaNext.textContent = idx === questions.length - 1 ? "End session" : "Next question";
+        if (idx === questions.length - 1) playPanelChime(true);
+        reviewBanner.classList.toggle("review-banner--hidden", idx < 4); document.getElementById("panelPresence").hidden = idx < 2; if (idx >= 2) playPanelChime();
       }
 
       async function startRec() {
         if (!consentCheck.checked) return;
-        isRecording = true;
+        clearReadinessCountdown();
+        isRecording = true; document.getElementById("liveInterviewNotice").hidden = false;
         hasRecordingStarted = true;
-        body.classList.add("is-recording");
-        screenRecorder.classList.remove("screen-recorder--hidden");
-        camRec.classList.remove("cam__rec--hidden");
+        panelChimed = false;
+        finalQuestionChimed = false;
+        $("closingConfirm").checked = false;
+        // Recording presentation is disabled for interview-only mode.
+        
+        
         screenState.textContent = "Active";
         screenState.classList.add("status-card__value--active");
-        camScreenSignal.textContent = "Screen recording active";
+        camScreenSignal.textContent = "Interview status active";
         camScreenSignal.classList.add("cam__signal--active");
         btn.classList.remove("rec-toggle--off");
         btn.setAttribute("aria-pressed", "true");
-        btnText.textContent = "Stop recording";
-        statusLabel.textContent = "Recording";
+        btnText.textContent = "Interview in progress";
+        btn.disabled = true;
+        statusLabel.textContent = "In progress";
         startTime = Date.now() - elapsedMs;
         intervalId = setInterval(tick, 250);
-        await Promise.allSettled([startCamera(), startAudioMeter()]);
+        document.getElementById("micLiveLabel").textContent = "Connecting microphone…"; void startAudioMeter();
+        elapsedMs = 0;
+        startTime = Date.now();
+        renderTimer();
         idx = 0;
         setQuestionsVisible(true);
         renderQuestion();
@@ -525,65 +729,99 @@
       }
 
       function stopRec() {
-        isRecording = false;
+        isRecording = false; document.getElementById("liveInterviewNotice").hidden = true;
         body.classList.remove("is-recording");
         screenRecorder.classList.add("screen-recorder--hidden");
         camRec.classList.add("cam__rec--hidden");
         screenState.textContent = "Completed";
         screenState.classList.remove("status-card__value--active");
-        camScreenSignal.textContent = "Screen recording stopped";
+        camScreenSignal.textContent = "Interview status stopped";
         camScreenSignal.classList.remove("cam__signal--active");
         btn.classList.add("rec-toggle--off");
         btn.setAttribute("aria-pressed", "false");
-        btnText.textContent = "Start new recording";
-        statusLabel.textContent = "Not recording";
+        btnText.textContent = "Start new interview";
+        statusLabel.textContent = "Session ended";
         if (intervalId) clearInterval(intervalId);
         intervalId = null;
         stopCamera();
         stopAudioMeter();
+        btn.disabled = !consentCheck.checked;
         setQuestionsVisible(false);
         updateSubmitState();
       }
 
       consentCheck.addEventListener("change", () => {
-        btn.disabled = !consentCheck.checked;
+        btn.disabled = isRecording || !consentCheck.checked;
+        if (consentCheck.checked && !isRecording) beginReadinessCountdown();
+        else clearReadinessCountdown();
         updateSubmitState();
       });
-      btn.addEventListener("click", () => isRecording ? stopRec() : startRec());
+      btn.addEventListener("click", () => { if (!isRecording) startRec(); });
       qaNext.addEventListener("click", () => {
         if (!isRecording) return;
         if (idx < questions.length - 1) { idx++; renderQuestion(); }
         else {
-          qaSection.textContent = "Completed";
-          qaNumber.textContent = "Demonstration complete";
-          qaQuestion.textContent = "The HR Portal Demonstration and Registered Manager Compliance Interview have both been completed.";
-          qaHint.textContent = "Confirm final comments, corrections, evidence requests and agreed actions before stopping the recording.";
-          qaEvidence.textContent = "Completion record: HR portal reviewed, Registered Manager interviewed, evidence identified and outstanding actions assigned.";
+          if (!$("closingConfirm").checked) return;
+          stopRec();
+          playPanelChime(false, true);
+          qaSection.textContent = "Session ended";
+          qaNumber.textContent = "Interview complete";
+          qaCard.classList.remove("qa__card--hidden");
+          qaQuestion.textContent = "The interview session has ended.";
+          qaHint.hidden = false;
+          qaHint.textContent = "Thank you for taking part. The camera, microphone and session timer have stopped.";
+          qaEvidence.hidden = true;
+          qaLockNote.style.display = "none";
+          qaNext.textContent = "Session ended";
           qaNext.disabled = true;
-          qaPrevious.disabled = false;
+          qaPrevious.disabled = true;
           qaProgressBar.style.width = "100%";
           qaProgress.setAttribute("aria-valuenow", "100");
+          statusLabel.textContent = "Session ended";
         }
       });
       qaPrevious.addEventListener("click", () => { if (isRecording && idx > 0) { idx--; renderQuestion(); } });
-      submitBtn.addEventListener("click", (e) => { if (submitBtn.getAttribute("aria-disabled") === "true") e.preventDefault(); });
 
+      document.getElementById("cameraToggle").addEventListener("click", async () => {
+        const toggle = document.getElementById("cameraToggle");
+        toggle.disabled = true;
+        try { if (camStream) stopCamera(); else await startCamera(); }
+        finally { toggle.disabled = false; }
+      });
       let dragging = false, dragOffsetX = 0, dragOffsetY = 0;
-      camDrag.addEventListener("mousedown", (e) => {
-        if (window.innerWidth <= 1199) return;
+      function moveCamera(x, y) {
+        camFloat.style.left = Math.max(0, Math.min(x, window.innerWidth - camFloat.offsetWidth)) + "px";
+        camFloat.style.top = Math.max(0, Math.min(y, window.innerHeight - camFloat.offsetHeight)) + "px";
+        camFloat.style.right = "auto";
+      }
+      camDrag.tabIndex = 0;
+      camDrag.setAttribute("aria-label", "Move camera preview. Drag or use arrow keys.");
+      camDrag.addEventListener("pointerdown", (e) => {
+        if (e.button !== 0) return;
         dragging = true;
         const rect = camFloat.getBoundingClientRect();
         dragOffsetX = e.clientX - rect.left;
         dragOffsetY = e.clientY - rect.top;
+        camDrag.setPointerCapture(e.pointerId);
         camFloat.classList.add("cam-float--dragging");
       });
-      document.addEventListener("mousemove", (e) => {
-        if (!dragging) return;
-        camFloat.style.left = (e.clientX - dragOffsetX) + "px";
-        camFloat.style.top = (e.clientY - dragOffsetY) + "px";
-        camFloat.style.right = "auto";
+      camDrag.addEventListener("pointermove", (e) => {
+        if (dragging) moveCamera(e.clientX - dragOffsetX, e.clientY - dragOffsetY);
       });
-      document.addEventListener("mouseup", () => { dragging = false; camFloat.classList.remove("cam-float--dragging"); });
+      for (const event of ["pointerup", "pointercancel", "lostpointercapture"]) {
+        camDrag.addEventListener(event, () => { dragging = false; camFloat.classList.remove("cam-float--dragging"); });
+      }
+      camDrag.addEventListener("keydown", (e) => {
+        const delta = {ArrowLeft:[-20,0],ArrowRight:[20,0],ArrowUp:[0,-20],ArrowDown:[0,20]}[e.key];
+        if (!delta) return;
+        e.preventDefault();
+        const rect = camFloat.getBoundingClientRect();
+        moveCamera(rect.left + delta[0], rect.top + delta[1]);
+      });
+      window.addEventListener("resize", () => {
+        const rect = camFloat.getBoundingClientRect();
+        moveCamera(rect.left, rect.top);
+      });
 
       renderTimer();
       setQuestionsVisible(false);
